@@ -1,0 +1,9 @@
+{
+  "name": "bcrypt-hello-world",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "node-sass": "^7.0.3"
+  }
+}
