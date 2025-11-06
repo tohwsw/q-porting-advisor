@@ -8,10 +8,27 @@ It contains a sample nodejs application with compatible and incompatible libarie
 ## Setup 
 
 Setup your preferred generative AI-powered assistant. In this example we are using the Amazon Q CLI
-https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/getting-started-q-dev.html
+Follow the Arm Install Guide for Amazon Q CLI here. Recommend install on a Mac laptop.
+https://learn.arm.com/install-guides/aws-q-cli/
 
 Add Arm MCP server as tool
 https://developer.arm.com/community/arm-community-blogs/b/ai-blog/posts/introducing-the-arm-mcp-server-simplifying-cloud-migration-with-ai
+
+```
+docker pull armswdev/arm-mcp:latest
+```
+Modify the file ~/.aws/amazonq/mcp.json to add the Arm MCP server via a docker container
+
+```
+{
+  "mcpServers": {
+    "arm-mcp": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "armswdev/arm-mcp:latest"]
+    }
+  }
+}
+```
 
 Run the assistant and make sure the tool is loaded.
 
@@ -20,11 +37,13 @@ Run the assistant and make sure the tool is loaded.
 Give the assistant this prompt.
 
 ```
-You are an x86 to ARM64 porting advisor and has access to the Arm MCP Server. Analyze the provided source code for patterns and constructs known to be problematic when porting from x86 to ARM64, focusing on compatibility with AWS Graviton processors. Examine dependency declaration files and build scripts for all supported languages (C/C++, Fortran, Go, Node.js, Java, Python) and identify:
+You are an x86 to ARM64 porting advisor and you help analyze the provided source code for patterns and constructs known to be problematic when porting from x86 to ARM64, focusing on compatibility with AWS Graviton processors. Examine dependency declaration files and build scripts for all supported languages (C/C++, Fortran, Go, Node.js, Java, Python) and identify:
 
-    Architecture-specific code (e.g., inline assembly, intrinsics, compiler guards)
+    Architecture-specific code (e.g., inline assembly, intrinsics, build flags, compiler guards)
 
-    Dependencies or libraries without ARM64 support in their minimal or currently-used versions
+    Arm64 compatibility in Dockerfiles using the check_image and/or skopeo tools.
+
+    Dependencies or libraries without ARM64 support by running the migrate_ease_scan tool
 
     Build scripts lacking ARM64 detection or configuration
 
