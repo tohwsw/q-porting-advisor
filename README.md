@@ -32,6 +32,10 @@ Modify the file ~/.aws/amazonq/mcp.json to add the Arm MCP server via a docker c
 
 Run the assistant and make sure the tool is loaded.
 
+```
+q chat
+```
+
 ## Analysis Prompt
 
 Give the assistant this prompt.
@@ -66,7 +70,7 @@ Generate a comprehensive report listing:
 Include actionable suggestions and reference links (where possible) to AWS Graviton documentation or open-source compatibility lists. The tool should not modify the code or transmit data externally. It must run on both x86 and ARM64 hosts, analyzing only source code (not binaries).
 ```
 
-## Example Output
+## Example Output with Claude Sonnet 4.5
 
 ```
 I've completed a comprehensive x86 to ARM64 porting analysis for your Node.js application targeting AWS Graviton processors. Here are the key 
