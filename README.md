@@ -1,9 +1,23 @@
-# AWS Graviton Compatibility Analysis Tool
+# AWS Graviton Compatibility Analysis Tool with Q CLI
 
 ## Overview
-This README documents the prompt methodology used to analyze Node.js applications for AWS Graviton (ARM64) processor compatibility.
+This README documents the LLM prompt methodology used to analyze Node.js applications for AWS Graviton (ARM64) processor compatibility.
+It contains a sample nodejs application with compatible and incompatible libaries.
+
+
+## Setup 
+
+Setup your preferred generative AI-powered assistant. In this example we are using the Amazon Q CLI
+https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/getting-started-q-dev.html
+
+Add Arm MCP server as tool
+https://developer.arm.com/community/arm-community-blogs/b/ai-blog/posts/introducing-the-arm-mcp-server-simplifying-cloud-migration-with-ai
+
+Run the assistant and make sure the tool is loaded.
 
 ## Analysis Prompt
+
+Give the assistant this prompt.
 
 ```
 You are an x86 to ARM64 porting advisor and has access to the Arm MCP Server. Analyze the provided source code for patterns and constructs known to be problematic when porting from x86 to ARM64, focusing on compatibility with AWS Graviton processors. Examine dependency declaration files and build scripts for all supported languages (C/C++, Fortran, Go, Node.js, Java, Python) and identify:
@@ -33,7 +47,7 @@ Generate a comprehensive report listing:
 Include actionable suggestions and reference links (where possible) to AWS Graviton documentation or open-source compatibility lists. The tool should not modify the code or transmit data externally. It must run on both x86 and ARM64 hosts, analyzing only source code (not binaries).
 ```
 
-## What This Analysis
+## Example Output
 
 ```
 I've completed a comprehensive x86 to ARM64 porting analysis for your Node.js application targeting AWS Graviton processors. Here are the key 
