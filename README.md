@@ -7,8 +7,8 @@ It contains a sample nodejs application with compatible and incompatible libarie
 
 ## Setup 
 
-Setup your preferred generative AI-powered assistant. In this example we are using the Amazon Q CLI
-Follow the Arm Install Guide for Amazon Q CLI here. Recommend install on a Mac laptop.
+Setup your preferred generative AI-powered assistant. In this example we are using the Kiro CLI
+Follow the Arm Install Guide for Kiro CLI here. Recommend install on a Mac laptop.
 https://learn.arm.com/install-guides/aws-q-cli/
 
 Add Arm MCP server as tool
