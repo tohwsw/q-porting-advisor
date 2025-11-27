@@ -33,7 +33,7 @@ Modify the file ~/.kiro/settings/mcp.json to add the Arm MCP server via a docker
 Run the assistant and make sure the tool is loaded.
 
 ```
-q chat
+kiro-cli
 ```
 
 ## Analysis Prompt
