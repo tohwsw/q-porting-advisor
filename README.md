@@ -1,4 +1,4 @@
-# AWS Graviton Compatibility Analysis Tool with Q CLI
+# AWS Graviton Compatibility Analysis Tool with Kiro CLI
 
 ## Overview
 This README documents the LLM prompt methodology used to analyze Node.js applications for AWS Graviton (ARM64) processor compatibility.
@@ -17,7 +17,7 @@ https://developer.arm.com/community/arm-community-blogs/b/ai-blog/posts/introduc
 ```
 docker pull armswdev/arm-mcp:latest
 ```
-Modify the file ~/.aws/amazonq/mcp.json to add the Arm MCP server via a docker container
+Modify the file ~/.kiro/settings/mcp.json to add the Arm MCP server via a docker container
 
 ```
 {
